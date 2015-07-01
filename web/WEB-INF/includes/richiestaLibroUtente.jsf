@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:form>
+<table>
+ 	<tr> 
+	 	<td>
+	 		<h:graphicImage styleClass="profile-img" value="#{config.imagesUrl}#{richiestaBean.utentePossessore.foto}" />
+	 	</td>
+	 	<td>
+	 		<ul>
+		   		<li>#{msgs.utenteEmailText}: #{richiestaBean.utentePossessore.email}</li>
+		   		<li>#{msgs.utenteIndirizzoText}: #{richiestaBean.utentePossessore.indirizzo} </li>
+		   		<li>#{msgs.utenteComuneText}: #{richiestaBean.utentePossessore.comune}</li>
+		   		<li>#{msgs.utenteProvinciaText}: #{richiestaBean.utentePossessore.provincia}</li>
+		   		<li>#{msgs.utenteRegioneText}: #{richiestaBean.utentePossessore.regione}</li>
+		   		<li>#{msgs.utenteNCellText}: #{richiestaBean.utentePossessore.n_cell}</li>
+		   	</ul>
+	 	</td>  
+	 </tr>
+	 <tr>
+	   <td colspan="2">
+	   		<h:inputTextarea value="#{richiestaBean.emailMessage}" />
+	   		<h:commandButton value="Invia la Richiesta" action="#{richiestaBean.sendEmail()}"/>
+	   </td>
+	 </tr>
+</table>
+
+</h:form>
+</ui:composition>
