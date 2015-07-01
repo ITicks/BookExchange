@@ -34,10 +34,7 @@ public abstract class AbstractUtente extends ViewStateBean
     	cleanUp();
     	
     	//Setto lo stato del Bean nella pagina di benvenuto
-    	setState("pagina_benvenuto", "paginaBenvenuto");
-    	
-    	//Ritorno all'index
-    	return "redirectToIndex";
+    	return setState("pagina_benvenuto", "index");
     }
 	
 	/**
@@ -46,9 +43,7 @@ public abstract class AbstractUtente extends ViewStateBean
 	 * @return {@code true} se e solo se l'utente è loggato.
 	 */
 	
-	public boolean getLoggedIn(Object obj){
-		return obj != null;
-	}
+	public boolean getLoggedIn(Object obj){ return obj != null; }
 
 	
 	/**

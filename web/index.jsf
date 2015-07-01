@@ -15,7 +15,7 @@
     #{msgs.indexTitle}
   </ui:define>
   <ui:define name="content">
-     Ciao
+    <ui:include src="/WEB-INF/includes/paginaBenvenuto.jsf" />
   </ui:define>
 </ui:composition>
 </h:body>

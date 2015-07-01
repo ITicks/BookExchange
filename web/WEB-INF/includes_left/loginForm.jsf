@@ -4,10 +4,10 @@
 	  			xmlns:ui="http://java.sun.com/jsf/facelets">
 	  			
  <h:form rendered="#{not indexBean.loggedIn}">
-    <h4>#{msgs.frmLoginCustomerTitle}</h4>
+    <h4>#{msgs.loginTitleText}</h4>
       <table>
       <tr>
-	    <td>#{msgs.formUserLoginText}</td>
+	    <td>#{msgs.formUserLoginText}:</td>
 	    <td>
 	      <h:inputText value="#{indexBean.username}"
 	        required="true"
@@ -19,7 +19,7 @@
 	    </td>
 	  </tr>
 	  <tr>
-	    <td>#{msgs.formUserPasswordText}</td>
+	    <td>#{msgs.formUserPasswordText}:</td>
 	    <td>
 	      <h:inputSecret value="#{indexBean.password}"
 	        required="true"

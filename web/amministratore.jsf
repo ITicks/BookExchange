@@ -12,12 +12,12 @@
 <h:body>
 <ui:composition template="/WEB-INF/templates/layout.jsf">
   <ui:define name="windowTitle">
-    #{msgs.productsTitle}
+    #{msgs.amministrazioneTitle}
   </ui:define>
   <ui:define name="content">
-    
-    <h4> PROVA Amministratore</h4>
-  
+    <center>
+      <ui:include src="#{amministratoreBean.getPageState()}"/>
+    </center>
   </ui:define>
 </ui:composition>
 </h:body>

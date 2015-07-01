@@ -30,6 +30,4 @@ public class PairInserzioneLibroModel implements Serializable {
 	public void setInserzione(InserzioneModel inserzione) {
 		this.inserzione = inserzione;
 	}
-	
-	
 }

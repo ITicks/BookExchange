@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class RicercaBean implements Serializable {
+public class RicercaBean extends ViewStateBean implements Serializable {
 
 	/** Serial Version UID. */
 	private static final long serialVersionUID = 7723552566746113674L;
@@ -110,13 +110,8 @@ public class RicercaBean implements Serializable {
 
 			}
 		}
-		//Recupero il Bean della Ricerca
-		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-		UtenteBean utenteBean = (UtenteBean) FacesContext.getCurrentInstance()
-				.getApplication().getELResolver()
-				.getValue(elContext, null, "utenteBean");
 		
-		return utenteBean.setState("ricerca_libri", "utente");
+		return this.setState("ricerca_libri", "utente");
 	}
 	
 	public String richiediLibro(UtenteModel utentePossessore, LibroModel libro){
@@ -130,14 +125,8 @@ public class RicercaBean implements Serializable {
 		richiestaBean.setLibro(libro);
 		richiestaBean.setUtenteRichiedente(utente);
 		richiestaBean.writeStandardEmailMessage();
-		
-		// Recupero il Bean dell utente
-		ELContext eContext = FacesContext.getCurrentInstance().getELContext();
-		UtenteBean utenteBean = (UtenteBean) FacesContext.getCurrentInstance()
-				.getApplication().getELResolver()
-				.getValue(eContext, null, "utenteBean");
-		
-		return utenteBean.setState("richiesta_libro", "utente");
+				
+		return this.setState("richiesta_libro", "utente");
 	}
 	
 	public FilterModel getFiltro() { return filtro;	}

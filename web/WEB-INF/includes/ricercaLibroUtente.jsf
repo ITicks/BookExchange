@@ -55,7 +55,6 @@
 		</ui:repeat>
 		</m:map>
 	</h:form>
-
 <h:form>
   
   <h:outputText rendered="#{ricercaBean.listaLibriCercati.isEmpty()}" value="NESSUN LIBRO TROVATO"/>

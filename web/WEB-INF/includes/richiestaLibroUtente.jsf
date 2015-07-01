@@ -22,8 +22,10 @@
 	 </tr>
 	 <tr>
 	   <td colspan="2">
-	   		<h:inputTextarea value="#{richiestaBean.emailMessage}" />
-	   		<h:commandButton value="Invia la Richiesta" action="#{richiestaBean.sendEmail()}"/>
+	   		<h:inputTextarea styleClass="textarea-email" value="#{richiestaBean.emailMessage}" />
+	   		<div align="center">
+	   		  <h:commandButton value="#{msgs.richiestaButtonText}" action="#{richiestaBean.sendEmail()}"/>
+	   		</div>
 	   </td>
 	 </tr>
 </table>

@@ -77,11 +77,6 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 
 	public void setFileUploader(FileUploader fileUploader) { this.fileUploader = fileUploader; }
 	
-	/**
-	 * Verifico che l'username e la password corrispondano
-	 * ad un utente standard
-	 */
-	@Override
 	public Object verifyUser(String username, String password)
 	{
 		

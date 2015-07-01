@@ -9,7 +9,7 @@
   <table>
  	<tr> 
 	 	<td>
-	 		<h:graphicImage styleClass="profile-img" value="#{config.imagesUrl}#{lic.utente.foto}" />
+	 		<h:graphicImage styleClass="profile-img" value="#{config.imagesUrl}#{utenteBean.utente.foto}" />
 	 	</td>
 	 	<td>
 	 		<ul>

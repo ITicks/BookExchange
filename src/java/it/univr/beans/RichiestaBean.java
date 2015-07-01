@@ -11,15 +11,19 @@ import java.io.Serializable;
 import java.util.Properties;
 
 import javax.annotation.PostConstruct;
-import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
+/**
+ * Bean che gestisce le richieste di prestito di un libro.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
+ */
 @ManagedBean
 @SessionScoped
-public class RichiestaBean implements Serializable{
+public class RichiestaBean extends ViewStateBean implements Serializable{
 
 	/** Serial Version UID.	 */
 	private static final long serialVersionUID = 2867999915550660547L;
@@ -105,16 +109,8 @@ public class RichiestaBean implements Serializable{
 		else
 			MessagesHandler.getInstance().buildMessage("richiestaInviata", 
 					FacesMessage.SEVERITY_INFO);
-					
-		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-		UtenteBean utenteBean = (UtenteBean) FacesContext.getCurrentInstance()
-				.getApplication().getELResolver()
-				.getValue(elContext, null, "utenteBean");
 		
-		MessagesHandler.getInstance().buildMessage("richiestaInviata", 
-				FacesMessage.SEVERITY_INFO);
-		
-		return utenteBean.setState("ricerca_libri", "utente");
+		return this.setState("ricerca_libri", "utente");
 	}
 	
 }

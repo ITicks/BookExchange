@@ -17,7 +17,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class IndexBean implements Serializable
+public class IndexBean extends ViewStateBean implements Serializable
 {
 
     /** Serial Version UID. */
@@ -62,24 +62,17 @@ public class IndexBean implements Serializable
 		
 	public String login(){
 		
-		
 		if(utenteBean.verifyUser(username, password) != null) {
 			
 			loggedIn = true;
-			return "utente";
-		
+			return this.setState("profilo", "utente");
 		} else if (correttoreBean.verifyUser(username, password) != null) {
-			
 			loggedIn = true;
-			return "correttore";
-		
+			return this.setState("lista_inserzioni", "correttore");
 		}else if(amministratoreBean.verifyUser(username, password) != null) {
-			
 			loggedIn = true;
-			return "amministratore";
-		
+			return this.setState("statistiche", "amministratore");
 		}else {
-			
 			MessagesHandler.getInstance().buildMessage("loginFailed", 
 					FacesMessage.SEVERITY_ERROR);
 		}
@@ -90,11 +83,12 @@ public class IndexBean implements Serializable
 	public String registrazione() {
 		
 		if(registrazioneBean.registrazioneAux())
-			return "verificaMail";
+			MessagesHandler.getInstance().buildMessage("verificationMail", 
+					FacesMessage.SEVERITY_ERROR);
 		else
 			MessagesHandler.getInstance().buildMessage("registrationFailed", 
 					FacesMessage.SEVERITY_ERROR);
-		return "";
+		return "index";
 	}
 		
 	public void logout() {

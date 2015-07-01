@@ -12,6 +12,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Classe che invia email automatiche tramite Gmail
+ * @author Matteo Olivato
+ * @author Federico Bianchi
+ */
 public class EmailSender {
 	
 	/** Path del file di properties */

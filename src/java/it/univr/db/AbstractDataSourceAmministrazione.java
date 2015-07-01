@@ -31,18 +31,21 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 			+ "FROM Amministrazione "
 			+ "WHERE tipo = ?";
 	
-	/** Aggiorno un utente amministrativo */
-	private String insertAmm = "INSERT INTO Amministrazione ( ?, ?, ?, ?, ?, ?, ?, NULL, NULL) ";
+	/** Query per l'inserimento di un nuovo Correttore di Bozze. */
+	private String insertCorrettoreBozze = "INSERT INTO Amministrazione (nome, cognome, "
+			+ "username, password, email, n_cell, tipo, "
+			+ "last_login, last_logout) "
+			+ "VALUES(?, ?, ?, ?, ?, ?, ?, NULL, NULL) ";
 	
-	/** Aggiorno il timestamp del last login. */
+	/** Query per l'aggiornamento del timestamp del last login. */
 	private String updateLastLogin = "UPDATE Amministrazione "
 			+ "SET last_login = CURRENT_TIMESTAMP WHERE id = ?";
 	
-	/** Aggiorno il timestamp del last logout. */
+	/** Query per l'aggiornamento del timestamp del last logout. */
 	private String updateLastLogout = "UPDATE Amministrazione "
 			+ "SET last_logout = CURRENT_TIMESTAMP WHERE id = ?";
 	
-	/** Cancello un tipo di utente amministrativo. */
+	/** Query per la cancellazione di un Correttore di Bozze. */
 	private String deleteAmm = "DELETE FROM Amministrazione "
 			+ "WHERE id = ? AND tipo = ?";
 
@@ -141,7 +144,7 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 	 * @return {@code true} se l'inserimento è andato a buon fine, altrimenti {@code false}
 	 */
 	protected boolean insertAmministrazione(List<Object> list){
-		int res = db.executeUpdate(insertAmm, list);
+		int res = db.executeUpdate(insertCorrettoreBozze, list);
         
         return res != 0;
 	}

@@ -11,7 +11,7 @@ import java.util.Properties;
 public class ViewStateBean {
 	
 	/** Stato della jsf */
-	private String state="standard_utente";
+	private static String state="standard_utente";
 	
 	/** Path del file di properties */
 	private static final String configFilePageState = 
@@ -50,7 +50,7 @@ public class ViewStateBean {
 	 * @return {@code redirectpage}
 	 */
 	public String setState(String state, String redirectpage ){
-		this.state = state;
+		ViewStateBean.state = state;
 		return redirectpage;
 	}
 

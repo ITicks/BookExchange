@@ -41,7 +41,7 @@ public class DataSourceInserzione extends AbstractDataSource {
 	private String updateDispIns = "UPDATE Inserzione SET disponibilita = ? WHERE id_utente = ? AND codice_libro = ? ";
 	
 	/** Valido l'inserzione di un utente */
-	private String validateIns = "UPDATE Inserzione SET id_amministratore = ? WHERE id_utente = ? AND codice_libro = ? ";
+	private String validateIns = "UPDATE Inserzione SET id_amministrazione = ? WHERE id_utente = ? AND codice_libro = ? ";
 	
 	/**
 	 * Serial Version UID. 
