@@ -85,6 +85,11 @@ table td {
    top: 5px;
 }
 
+.listvalues {
+   font-size: 18px;
+   text-align: center;
+}
+
 .login_header {
    float: right;
 }
