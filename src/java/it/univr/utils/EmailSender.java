@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
  * @author Matteo Olivato
  * @author Federico Bianchi
  */
-public class EmailSender implements Serializable {
+public class EmailSender implements Serializable, SendEmailInterface {
 	
 	/** Serial Version UID. */
 	private static final long serialVersionUID = 2782891016573358416L;

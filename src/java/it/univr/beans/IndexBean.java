@@ -80,17 +80,6 @@ public class IndexBean extends ViewStateBean implements Serializable
 		return "index";
 	}
 	
-	public String registrazione() {
-		
-		if(registrazioneBean.registrazioneAux())
-			MessagesHandler.getInstance().buildMessage("verificationMail", 
-					FacesMessage.SEVERITY_ERROR);
-		else
-			MessagesHandler.getInstance().buildMessage("registrationFailed", 
-					FacesMessage.SEVERITY_ERROR);
-		return "index";
-	}
-		
 	public void logout() {
 		loggedIn = false;
 
@@ -104,7 +93,6 @@ public class IndexBean extends ViewStateBean implements Serializable
 			amministratoreBean.logout();
 	}
 	
-
 	public String getUsername() {
 		return username;
 	}

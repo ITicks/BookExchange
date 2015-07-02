@@ -3,22 +3,20 @@ package it.univr.beans;
 import it.univr.db.DataSourceUtente;
 import it.univr.models.UtenteModel;
 
-
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  * Bean per la registrazione dell'Utente.
  */
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class RegistrazioneBean implements Serializable
 {
 	/**
@@ -30,7 +28,13 @@ public class RegistrazioneBean implements Serializable
 	
 	private DataSourceUtente dsUtente;
 	
-	public boolean registrazioneAux() {
+	/** L'utente da inserire */
+	private UtenteModel utente;
+	
+	/**
+	 * Registro il nuovo utente inserito
+	 */
+	public void registraNuovoUtente() {
 		List<Object> list = new ArrayList<Object>();
 		
 		list.add(nuovoUtente.getNome());
@@ -51,9 +55,11 @@ public class RegistrazioneBean implements Serializable
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
 		}
-		return true;
 	}
+
+	public UtenteModel getUtente() { return utente; }
+
+	public void setUtente(UtenteModel utente) { this.utente = utente; }
 
 }
