@@ -27,7 +27,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Rifiuta</f:facet>
-				<h:inputTextarea value="#{cr.emailMessage}"
+				<h:inputTextarea value="#{correttoreBean.emailMessage}"
 					styleClass="textarea-email" />
 				<div align="center">
 					<h:commandButton value="Rifiuta"

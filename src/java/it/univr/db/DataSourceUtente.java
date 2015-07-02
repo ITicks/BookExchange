@@ -34,13 +34,15 @@ public class DataSourceUtente extends AbstractDataSource
 	private String inserimento_utente = "INSERT INTO Utente(id, nome, cognome, "
 			+ "username, password, email, indirizzo, comune, "
 			+ "provincia, regione, foto, n_cell, confermato) "
-			+ "VALUES (?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, ?, ?, 'false')";
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'false')";
 
 	private String modifica_utente = "UPDATE Utente "
-			+ "SET nome=? cognome=? email=? indirizzo=? comune=? "
-			+ "provincia=? regione=? foto=? n_cell=? " + "WHERE id=?";
+			+ "SET nome = ? cognome = ? email = ? indirizzo = ? comune = ? "
+			+ "provincia = ? regione = ? foto = ? n_cell = ? " + "WHERE id = ?";
 
 	private String cancella_utente = "DELETE FROM Utente " + "WHERE id=?";
+
+	private String modifica_foto_utente = "UPDATE Utente SET foto = ? WHERE username = ?";
 
 
 	private UtenteModel makeUserModel(ResultSet rs)
@@ -120,30 +122,18 @@ public class DataSourceUtente extends AbstractDataSource
 
 	public boolean modificaUtente(List<Object> list) throws SQLException
 	{
-
-		int res = db.executeUpdate(modifica_utente, list);
-
-		return res != 0;
+		return db.executeUpdate(modifica_utente, list) != 0;
 	}
-
 
 	public boolean cancellaUtente(List<Object> list) throws SQLException
 	{
-
-		int res = db.executeUpdate(cancella_utente, list);
-
-		return res != 0;
+		return db.executeUpdate(cancella_utente, list) != 0;
 	}
-
 
 	public boolean inserimentoUtente(List<Object> list) throws SQLException
 	{
-
-		int res = db.executeUpdate(inserimento_utente, list);
-
-		return res != 0;
+		return db.executeUpdate(inserimento_utente, list) != 0;
 	}
-
 
 	public UtenteModel getUtente(List<Object> list) {
 		ResultSet rs = db.executeQuery(utenteId, list);
@@ -158,4 +148,9 @@ public class DataSourceUtente extends AbstractDataSource
 		return null;
 	}
 
+
+	
+	public boolean modificaFoto(List<Object> list) {
+		return db.executeUpdate(modifica_foto_utente , list) != 0;
+	}
 }

@@ -88,6 +88,11 @@ table td {
 	font-style: bold;
 }
 
+.inputfile {
+   width: 300px;
+   height: 100%;
+}
+
 .profile-img {
 	width: 300px;
 	height: 300px;

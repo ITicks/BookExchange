@@ -20,6 +20,17 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
    
+   <!-- 
+   <filter>
+		<filter-name>NoCacheFilter</filter-name>
+		<filter-class>it.univr.filters.NoCacheFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	    <filter-name>NoCacheFilter</filter-name>
+	    <servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping> -->
+   
   <!-- Pagina iniziale. -->
   <welcome-file-list>
     <welcome-file>index.jsf</welcome-file>
@@ -42,5 +53,7 @@
     <param-name>javax.faces.FACELETS_VIEW_MAPPINGS</param-name>
     <param-value>*.jsf</param-value>
   </context-param>
+
+	
   
 </web-app>

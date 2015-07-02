@@ -3,6 +3,7 @@ package it.univr.utils;
 import it.univr.exceptions.DatabaseException;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -17,8 +18,11 @@ import javax.mail.internet.MimeMessage;
  * @author Matteo Olivato
  * @author Federico Bianchi
  */
-public class EmailSender {
+public class EmailSender implements Serializable {
 	
+	/** Serial Version UID. */
+	private static final long serialVersionUID = 2782891016573358416L;
+
 	/** Path del file di properties */
 	private static final String configFileEmail = 
 			"/it/univr/properties/email.properties";

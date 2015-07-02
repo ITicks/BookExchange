@@ -10,6 +10,10 @@
   <script type="text/javascript"
                 src="https://maps.googleapis.com/maps/api/js?sensor=true">
   </script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+   
 	<title><ui:insert name="windowTitle"/></title>
   <h:outputStylesheet library="css" name="styles.css" target="head"/>
 </h:head>

@@ -43,8 +43,6 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 
 	private String emailMessage;
 	
-	
-
 	/**
 	 * Serial Version UID.
 	 */

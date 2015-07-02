@@ -6,11 +6,32 @@
   
   
   <h1>Benvenuto #{utenteBean.utente.nome} #{utenteBean.utente.cognome}</h1>
+  <h:form enctype="multipart/form-data">
   <table>
  	<tr> 
 	 	<td>
-	 		<h:graphicImage styleClass="profile-img" value="#{config.imagesUrl}#{utenteBean.utente.foto}" />
-	 	</td>
+	 		<h:graphicImage styleClass="profile-img"
+					value="#{config.imagesUrl}#{utenteBean.utente.foto}" />
+					
+					<table class="inputfile">
+						<tr>
+							<td><h:inputFile styleClass="inputfile" required="true"
+									id="file" value="#{utenteBean.fileUploader.file}">
+									<f:validator validatorId="fileValidator" />
+								</h:inputFile></td>
+						</tr>
+						<tr>
+							<td>
+								<div align="center">
+									<h:commandButton value="Upload"
+										action="#{utenteBean.uploadFotoProfilo()}" />
+
+								</div>
+							</td>
+						</tr>
+					</table>
+				
+			</td>
 	 	<td>
 	 		<ul>
 		   		<li>#{msgs.utenteEmailText}: #{utenteBean.utente.email}</li>
@@ -23,4 +44,5 @@
 	 	</td>  
 	 </tr>
    	</table>
+   	</h:form>
 </ui:composition>

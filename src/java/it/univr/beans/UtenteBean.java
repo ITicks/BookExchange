@@ -121,7 +121,34 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		this.resetListaInserzioniLibri();
 		this.utente = null;
 		this.libro = null;
-		this.fileUploader = null;
+	}
+	
+	/**
+	 * Carico una nuovoa foto profilo Utente
+	 * @return la pagina de profilo da ricaricare
+	 */
+	public String uploadFotoProfilo(){
+		fileUploader.upload();
+		
+		List<String> strnameparts = new ArrayList<String>();
+		
+		strnameparts.add(""+utente.getId());
+		strnameparts.add(utente.getUsername());
+		
+		//Normalizzo il nome del file che andrò a salvare
+		String nomefile = fileUploader.normalizeUploadFileName(strnameparts);
+		//Aggiorno il campo del libro relativo alla foto appena caricata
+		fileUploader.save(nomefile);
+		utente.setFoto(fileUploader.getFilename());
+		
+		List<Object> list = new ArrayList<Object>();
+		list.add(utente.getFoto());
+		list.add(utente.getUsername());
+		
+		//Modifico la foto Profilo dell'utente
+		dsUtente.modificaFoto(list);
+		
+		return this.setState("profilo", "utente");
 	}
 	
 	/**
@@ -243,7 +270,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	public String insertNuovoLibro(){
 		
 		//Carico la foto inserita
-		uploadFoto();
+		uploadFotoLibro();
 		
 		List<Object> list = new ArrayList<Object>() ;
 		
@@ -279,7 +306,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		return this.setState("imiei_libri", "utente");
 	}
 
-	private void uploadFoto(){
+	private void uploadFotoLibro(){
 		List<String> list = new ArrayList<String>();
 		
 		list.add(libro.getISBN());
@@ -310,4 +337,12 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		return this.setState("dati_libro", "utente");
 	}
 	
+	/**
+	 * Indico se le liste dei libri sono vuote
+	 * @return {@ code true} se la lista dei libri è vuota, altrimenti {@code false}
+	 */
+	public boolean areListsEmpty() {
+		return listaInsLibNV == null && listaInsLibNV.isEmpty()
+				&& listaInsLibV == null && listaInsLibV.isEmpty();
+	}
 }

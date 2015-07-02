@@ -3,13 +3,10 @@
 	  			xmlns:f="http://java.sun.com/jsf/core"
 	  			xmlns:ui="http://java.sun.com/jsf/facelets">
   <h:form>
+  
    
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-   
-   <h4>#{msgs.textlistaLibValidi}</h4>
-    <h:dataTable value="#{utenteBean.listaInsLibValidati}" var="lil">
+    <h:dataTable rendered="#{not utenteBean.listaInsLibValidati.isEmpty()}" value="#{utenteBean.listaInsLibValidati}" var="lil">
+    <h4>#{msgs.textlistaLibValidi}</h4>
 	  <h:column>
 	    <f:facet name="header">#{msgs.libroImmagineText}</f:facet>
 	  	<h:graphicImage value="#{config.imagesUrl}#{lil.libro.foto}" styleClass="book-img" />
@@ -49,8 +46,9 @@
 	  
     </h:dataTable>
     
-    <h4>#{msgs.textlistaLibInAttesa}</h4>
-    <h:dataTable value="#{utenteBean.listaInsLibDaValidare}" var="lil">
+   
+    <h:dataTable rendered="#{not utenteBean.listaInsLibDaValidare.isEmpty()}" value="#{utenteBean.listaInsLibDaValidare}" var="lil">
+     <h4>#{msgs.textlistaLibInAttesa}</h4>
 	  <h:column>
 	    <f:facet name="header">#{msgs.libroImmagineText}</f:facet>
 	  	<h:graphicImage value="#{config.imagesUrl}#{lil.libro.foto}" styleClass="book-img" />
@@ -73,6 +71,9 @@
       </h:column>
 	  
     </h:dataTable>
+    
+    <h:outputText rendered="#{utenteBean.areListsEmpty()}" value="#{msgs.nessunLibroInseritoText}"/>
+  
     
   </h:form>
 </ui:composition>
