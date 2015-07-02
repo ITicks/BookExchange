@@ -15,7 +15,7 @@
     #{msgs.indexTitle}
   </ui:define>
   <ui:define name="content">
-    <ui:include src="/WEB-INF/includes/paginaBenvenuto.jsf" />
+    <center><ui:include src="/WEB-INF/includes/registrazioneUtente.jsf" /></center>
   </ui:define>
 </ui:composition>
 </h:body>

@@ -55,7 +55,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	private LibroModel libro;
 	
 	/** Uploader di file tramite FTP */
-	private FTPFileUploader fTPFileUploader;
+	private FTPFileUploader fileUploader;
 	
 	/** Inizializza il bean. */
 	@PostConstruct
@@ -64,7 +64,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		this.dsIns = new DataSourceInserzione();
 		this.dsLib = new DataSourceLibro();
 		this.libro = new LibroModel();
-		this.fTPFileUploader = new FTPFileUploader();
+		this.fileUploader = new FTPFileUploader();
 	}
 	
 	public UtenteModel getUtente() { return utente; }
@@ -73,9 +73,9 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 
 	public void setLibro(LibroModel libro) { this.libro = libro; }
 	
-	public FTPFileUploader getFileUploader() { return fTPFileUploader; }
+	public FTPFileUploader getFileUploader() { return fileUploader; }
 
-	public void setFileUploader(FTPFileUploader fTPFileUploader) { this.fTPFileUploader = fTPFileUploader; }
+	public void setFileUploader(FTPFileUploader fTPFileUploader) { this.fileUploader = fTPFileUploader; }
 	
 	public Object verifyUser(String username, String password)
 	{
@@ -128,7 +128,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	 * @return la pagina de profilo da ricaricare
 	 */
 	public String uploadFotoProfilo(){
-		fTPFileUploader.upload();
+		fileUploader.upload();
 		
 		List<String> strnameparts = new ArrayList<String>();
 		
@@ -136,10 +136,9 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		strnameparts.add(utente.getUsername());
 		
 		//Normalizzo il nome del file che andrò a salvare
-		String nomefile = fTPFileUploader.normalizeUploadFileName(strnameparts);
-		//Aggiorno il campo del libro relativo alla foto appena caricata
-		fTPFileUploader.save(nomefile);
-		utente.setFoto(fTPFileUploader.getFilename());
+		String nomefile = fileUploader.normalizeUploadFileName(strnameparts);
+		fileUploader.save(nomefile);
+		utente.setFoto(fileUploader.getFilename());
 		
 		List<Object> list = new ArrayList<Object>();
 		list.add(utente.getFoto());
@@ -313,10 +312,10 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		list.add(String.valueOf(libro.getAnno().toString()));
 		
 		//Normalizzo il nome del file che andrò a salvare
-		String nomefile = fTPFileUploader.normalizeUploadFileName(list);
+		String nomefile = fileUploader.normalizeUploadFileName(list);
 		//Aggiorno il campo del libro relativo alla foto appena caricata
-		fTPFileUploader.save(nomefile);
-		libro.setFoto(fTPFileUploader.getFilename());
+		fileUploader.save(nomefile);
+		libro.setFoto(fileUploader.getFilename());
 	}
 	
 	/**
@@ -342,7 +341,6 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	 * @return {@ code true} se la lista dei libri è vuota, altrimenti {@code false}
 	 */
 	public boolean areListsEmpty() {
-		return listaInsLibNV == null && listaInsLibNV.isEmpty()
-				&& listaInsLibV == null && listaInsLibV.isEmpty();
+		return listaInsLibNV.isEmpty() && listaInsLibV.isEmpty();
 	}
 }

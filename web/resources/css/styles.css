@@ -12,6 +12,7 @@
 body {
 	font-family: 'aaarghnormal';
 	font-size:10pt;
+	background-image: url("http://localhost:8000/background_image.jpg");
 }
 
 input {
@@ -20,7 +21,7 @@ input {
 
 table {
 	font-family: verdana,arial,sans-serif;
-	font-size:11px;
+	font-size:14px;
 	color:#333333;
 	border-width: 1px;
 	border-color: #666666;
@@ -32,7 +33,7 @@ table th {
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background-color: #dedede;
+	background-color: #378551;
 }
 
 table td {
@@ -40,40 +41,48 @@ table td {
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background-color: #ffffff;
+	background-color: #9bffbd;
 }
 
 #heading {
    padding: 20px;
    height: 30px;
    margin-bottom: 10px;
-   background: #dddddd;
+   background: #fdff53;
    border: 1px solid darkGray;
 }
 
 #sidebarLeft {
+   font-size: 36px;
+   font-style: italic;
+   text-align: center;
    border: thin solid lightGray;
    padding: 5px;
-   width: 255px;
-   background: #eeeeee;
+   width: 265px;
+   min-height: 100%;
+   background: #ff9660;
 }
 
 #content {
    padding: 5px;
    border: thin solid lightGray;
-   background: #fefeef;
+   background: #58ff90;
    position: absolute;
-   min-height: 400px;
+   min-height: 500px;
    right: 8px;
-   left: 280px;
+   left: 290px;
    top: 90px;
 }
 
 .header {
-   font-size: 1.4em;
+   font-size: 56px;
    font-style: italic;
    font-family: Palatino;
    text-align: center;
+   position: absolute;
+   right: 10px;
+   left: 10px;
+   top: 5px;
 }
 
 .login_header {

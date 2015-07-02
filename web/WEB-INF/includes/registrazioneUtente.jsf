@@ -2,72 +2,126 @@
 	  			xmlns:h="http://java.sun.com/jsf/html"
 	  			xmlns:f="http://java.sun.com/jsf/core"
 	  			xmlns:ui="http://java.sun.com/jsf/facelets">
- <h:form>
  	
- 	<h3> Registrati </h3>
-	
+  <h3> #{msgs.utenteRegistrazioneTitle} </h3>
+  
+  <h:form>
 	<table>
 		<tr>
-		  <td>Nome:</td>
-		<td>
-		<h:inputText value="#{registrazioneBean.correttore.nome}"
-								required="true"
-								requiredMessage="Nome obbligatorio"
-								validatorMessage="Nome non valido">
-								<f:validateLength minimum="1" maximum="50" />
-							</h:inputText></td>
-					</tr>
-					<tr>
-						<td>Cognome:</td>
-						<td><h:inputText value="#{amministratoreBean.correttore.cognome}"
-								required="true"
-								requiredMessage="Cognome obbligatorio"
-								validatorMessage="Cognome non valido">
-								<f:validateLength minimum="1" maximum="50" />
-							</h:inputText></td>
-					</tr>
-					<tr>
-						<td>Username:</td>
-						<td><h:inputText value="#{amministratoreBean.correttore.username}"
-								required="true"
-								requiredMessage="Username obbligatorio"
-								validatorMessage="Username non valido">
-								<f:validateLength minimum="1" maximum="50" />
-							</h:inputText></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><h:inputSecret value="#{amministratoreBean.correttore.password}"
-								required="true"
-								requiredMessage="Password obbligatoria"
-								validatorMessage="Password non valida">
-								<f:validateLength minimum="1" maximum="50" />
-							</h:inputSecret></td>
-					</tr>
-					<tr>
-						<td>E-mail:</td>
-						<td><h:inputText value="#{amministratoreBean.correttore.email}"
-								required="true"
-								requiredMessage="E-mail obbligatoria"
-								validatorMessage="E-mail non valida">
-								<f:validateLength minimum="1" maximum="100" />
-								<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
-							</h:inputText></td>
-					</tr>
-					<tr>
-						<td>Numero di telefono:</td>
-						<td><h:inputText value="#{amministratoreBean.correttore.n_cell}"
-								required="true"
-								requiredMessage="Numero di telefono obbligatorio"
-								validatorMessage="Numero di telefono non valido">
-								<f:validateLength minimum="1" maximum="50" />
-							</h:inputText></td>
-					</tr>
-				</table>
-				<p>
-					<h:commandButton value="Conferma"
-									 action="#{amministratoreBean.setNuovoCorrettore()}" />
-				</p>
-
-			</h:form>    
+		  <td>#{msgs.utenteNomeText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.nome}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteCognomeText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.cognome}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteUsernameText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.username}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utentePasswordText}:</td>
+		  <td>
+		    <h:inputSecret value="#{registrazioneBean.utente.password}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin8Max50}">
+		      <f:validateLength minimum="8" maximum="50" />
+		    </h:inputSecret>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteEmailText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.email}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		      <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteNCellText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.n_cell}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max100}">
+		      <f:validateLength minimum="1" maximum="10" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteIndirizzoText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.indirizzo}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max100}">
+		      <f:validateLength minimum="1" maximum="100" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteComuneText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.comune}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteProvinciaText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.provincia}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+		<tr>
+		  <td>#{msgs.utenteRegioneText}:</td>
+		  <td>
+		    <h:inputText value="#{registrazioneBean.utente.regione}"
+						 required="true"
+						 requiredMessage="#{msgs.requiredField}"
+		        		 validatorMessage="#{msgs.lenMin1Max50}">
+		      <f:validateLength minimum="1" maximum="50" />
+		    </h:inputText>
+		  </td>
+		</tr>
+	  
+	</table>
+			
+	<h:commandButton value="#{msgs.utenteButtonConfermaText}" action="#{registrazioneBean.registraNuovoUtente()}" />
+	</h:form> 		
+     
 </ui:composition>

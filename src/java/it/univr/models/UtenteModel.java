@@ -20,7 +20,7 @@ public class UtenteModel implements Serializable
 	private String comune;
 	private String provincia;
 	private String regione;
-	private String foto;
+	private String foto = "avatar_anonimo.jpg";
 	private String n_cell;
 	private boolean confermato;
 

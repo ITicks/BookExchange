@@ -31,10 +31,10 @@ public class DataSourceUtente extends AbstractDataSource
 
 	private String lista_utenti = "SELECT * " + "FROM Utente ";
 
-	private String inserimento_utente = "INSERT INTO Utente(id, nome, cognome, "
+	private String inserimento_utente = "INSERT INTO Utente(nome, cognome, "
 			+ "username, password, email, indirizzo, comune, "
 			+ "provincia, regione, foto, n_cell, confermato) "
-			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'false')";
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'true')";
 
 	private String modifica_utente = "UPDATE Utente "
 			+ "SET nome = ? cognome = ? email = ? indirizzo = ? comune = ? "
@@ -43,6 +43,8 @@ public class DataSourceUtente extends AbstractDataSource
 	private String cancella_utente = "DELETE FROM Utente " + "WHERE id=?";
 
 	private String modifica_foto_utente = "UPDATE Utente SET foto = ? WHERE username = ?";
+
+	private String query_check_username = " SELECT COUNT(*) AS num FROM Utente WHERE username = ? ";
 
 
 	private UtenteModel makeUserModel(ResultSet rs)
@@ -152,5 +154,20 @@ public class DataSourceUtente extends AbstractDataSource
 	
 	public boolean modificaFoto(List<Object> list) {
 		return db.executeUpdate(modifica_foto_utente , list) != 0;
+	}
+
+
+	public boolean isNewUsername(List<Object> list) {
+		ResultSet rs = db.executeQuery(query_check_username, list);
+		
+		try {
+			if (rs.next())
+				return rs.getInt("num") == 0;
+		} catch (SQLException e) {
+			throw new DatabaseException();
+		}
+		
+		
+		return false;
 	}
 }
