@@ -22,7 +22,7 @@
   	</h:form>
   </div>
   <div class="header">
-    #{msgs.header}
+  	<img class="banner" src="http://localhost:8000/banner.png"/>  
   </div>
   
 </ui:composition>
