@@ -10,6 +10,7 @@ import it.univr.models.LibroModel;
 import it.univr.models.PairInserzioneLibroModel;
 import it.univr.models.UtenteModel;
 import it.univr.utils.FTPFileUploader;
+import it.univr.utils.FileUploadInterface;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	private LibroModel libro;
 	
 	/** Uploader di file tramite FTP */
-	private FTPFileUploader fileUploader;
+	private FileUploadInterface fileUploader;
 	
 	/** Inizializza il bean. */
 	@PostConstruct
@@ -73,7 +74,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 
 	public void setLibro(LibroModel libro) { this.libro = libro; }
 	
-	public FTPFileUploader getFileUploader() { return fileUploader; }
+	public FileUploadInterface getFileUploader() { return fileUploader; }
 
 	public void setFileUploader(FTPFileUploader fTPFileUploader) { this.fileUploader = fTPFileUploader; }
 	

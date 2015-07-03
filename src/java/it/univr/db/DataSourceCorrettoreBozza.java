@@ -45,7 +45,7 @@ public class DataSourceCorrettoreBozza extends AbstractDataSourceAmministrazione
 	 */
 	public boolean deleteCorrettoreBozza(List<Object> list){
 		list.add("correttore");
-		return this.deleteAmministrazioni(list);
+		return this.deleteAmministrazione(list);
 	}
 	
 	/**

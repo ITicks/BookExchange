@@ -132,10 +132,8 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 	 * @param list lista di parametri per la query
 	 * @return {@code true} se la cancellazione è andato a buon fine, altrimenti {@code false}
 	 */
-	protected boolean deleteAmministrazioni(List<Object> list){
-		int res = db.executeUpdate(deleteAmm, list);
-        
-        return res != 0;
+	protected boolean deleteAmministrazione(List<Object> list){
+        return db.executeUpdate(deleteAmm, list) != 0;
 	}
 	
 	/**
@@ -144,9 +142,7 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 	 * @return {@code true} se l'inserimento è andato a buon fine, altrimenti {@code false}
 	 */
 	protected boolean insertAmministrazione(List<Object> list){
-		int res = db.executeUpdate(insertCorrettoreBozze, list);
-        
-        return res != 0;
+        return db.executeUpdate(insertCorrettoreBozze, list) != 0;
 	}
 
 	/**
@@ -155,10 +151,7 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 	 * @return {@code true} se l'aggiornamento è andato a buon fine, altrimenti {@code false}
 	 */
 	public boolean updateLastLogin(List<Object> list){
-		
-		int res = db.executeUpdate(updateLastLogin, list);
-        
-        return res != 0;
+        return db.executeUpdate(updateLastLogin, list) != 0;
 	}
 	
 	/**
@@ -167,9 +160,7 @@ public abstract class AbstractDataSourceAmministrazione extends AbstractDataSour
 	 * @return {@code true} se l'aggiornamento è andato a buon fine, altrimenti {@code false}
 	 */
 	public boolean updateLastLogout(List<Object> list){
-		int res = db.executeUpdate(updateLastLogout, list);
-        
-        return res != 0;
+        return db.executeUpdate(updateLastLogout, list) != 0;
 	}
 
 

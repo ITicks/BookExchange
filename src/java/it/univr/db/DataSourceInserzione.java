@@ -157,9 +157,7 @@ public class DataSourceInserzione extends AbstractDataSource {
 	 */
 
 	public boolean insertInserzione(List<Object> list){
-		int res = db.executeUpdate(insertInserzione, list);
-        
-        return res != 0;
+        return db.executeUpdate(insertInserzione, list) != 0;
 	}
 	
 	/**
@@ -168,9 +166,7 @@ public class DataSourceInserzione extends AbstractDataSource {
 	 * @param list lista di parametri per la query
 	 */
 	public boolean setDisponibilitaInserzione(List<Object> list){
-		int res = db.executeUpdate(updateDispIns, list);
-        
-        return res != 0;
+        return db.executeUpdate(updateDispIns, list) != 0;
 	}
 	
 	/**
@@ -178,9 +174,7 @@ public class DataSourceInserzione extends AbstractDataSource {
 	 * @param list lista di parametri per la query
 	 */
 	public boolean deleteInserzione(List<Object> list){
-		int res = db.executeUpdate(deleteInserzione, list);
-        
-        return res != 0;
+        return db.executeUpdate(deleteInserzione, list) != 0;
 	}
 	
 	/**

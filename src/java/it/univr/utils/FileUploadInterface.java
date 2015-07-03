@@ -1,5 +1,7 @@
 package it.univr.utils;
 
+import java.util.List;
+
 public interface FileUploadInterface {
 	
 	/**
@@ -12,4 +14,8 @@ public interface FileUploadInterface {
 	 * @param nomefile nome del file da salvare
 	 */
 	public void save(String nomefile);
+
+	public String normalizeUploadFileName(List<String> strnameparts);
+
+	public String getFilename();
 }
