@@ -9,6 +9,7 @@ import it.univr.models.AmministrazioneModel;
 import it.univr.models.InserzioneModel;
 import it.univr.models.PairInserzioneLibroModel;
 import it.univr.utils.EmailSender;
+import it.univr.utils.SendEmailInterface;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 	
 	private List<PairInserzioneLibroModel> listaInsLibDV;
 	
-	private EmailSender emailSender;
+	private SendEmailInterface emailSender;
 
 	private String emailMessage;
 	
