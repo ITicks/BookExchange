@@ -82,11 +82,13 @@ public class MessagesHandler implements Serializable {
      * @param s il livello di severity.
      */
     
-    public void buildMessage(String key, Severity s) {
+    public boolean buildMessage(String key, Severity s) {
         
         FacesMessage msg = new FacesMessage(properties.getProperty(key));
         msg.setSeverity(s);
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        
+        return true;
     }
 
 }
