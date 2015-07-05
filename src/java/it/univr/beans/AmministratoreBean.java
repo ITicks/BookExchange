@@ -22,7 +22,7 @@ import javax.faces.bean.SessionScoped;
  * Bean per la gestione dell'Amministratore.
  * 
  * @author Matteo Olivato
- * @autor  Federico Bianchi
+ * @author  Federico Bianchi
  */
 
 @ManagedBean

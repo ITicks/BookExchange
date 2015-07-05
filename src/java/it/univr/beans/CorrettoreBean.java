@@ -24,7 +24,7 @@ import javax.faces.bean.SessionScoped;
  * Bean per la gestione del correttore di bozze.
  *
  * @author Matteo Olivato
- * @autor  Federico Bianchi
+ * @author  Federico Bianchi
  */
 
 @ManagedBean

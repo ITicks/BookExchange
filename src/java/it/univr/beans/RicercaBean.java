@@ -147,7 +147,7 @@ public class RicercaBean extends ViewStateBean implements Serializable {
 	
 	/**
 	 * Se la lista non è vuota ritorno la lista dei libri cercati.
-	 * @return
+	 * @return lista dei libri cercati.
 	 */
 	public List<PairUtenteLibroModel> getListaLibriCercati() {
 		if(utente!=null && filtro != null && !filtro.isEmpty()) this.ricercaLibro();

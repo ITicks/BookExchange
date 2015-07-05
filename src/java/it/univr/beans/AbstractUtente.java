@@ -6,7 +6,7 @@ import javax.annotation.PreDestroy;
  * Classe astratta che rappresenta un Utente.
  * 
  * @author Matteo Olivato
- * @autor  Federico Bianchi
+ * @author  Federico Bianchi
  */
 public abstract class AbstractUtente extends ViewStateBean
 {

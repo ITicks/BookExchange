@@ -15,7 +15,7 @@ import javax.faces.bean.SessionScoped;
  * Bean di tutti i tipi di Utente.
  * 
  * @author Matteo Olivato
- * @autor  Federico Bianchi
+ * @author  Federico Bianchi
  */
 
 @ManagedBean

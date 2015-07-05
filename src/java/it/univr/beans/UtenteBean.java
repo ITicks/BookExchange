@@ -337,7 +337,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	
 	/**
 	 * Indico se le liste dei libri sono vuote
-	 * @return {@ code true} se la lista dei libri è vuota, altrimenti {@code false}
+	 * @return {@code true} se la lista dei libri è vuota, altrimenti {@code false}
 	 */
 	public boolean areListsEmpty() {
 		return listaInsLibNV.isEmpty() && listaInsLibV.isEmpty();
