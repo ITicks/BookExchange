@@ -2,7 +2,7 @@ INSERT INTO Utente(nome, cognome, username, password, email, indirizzo, comune, 
 VALUES ('Federico', 'Bianchi', 'fede', 'bian', 'fbianchi429@gmail.com', 'via Roma', 'Verona', 'Verona', 'Veneto', 'avatar_anonimo.jpg', '3494241067', 'true');
 
 INSERT INTO Utente(nome, cognome, username, password, email, indirizzo, comune, provincia, regione, foto, n_cell, confermato) 
-VALUES ('Matteo', 'Olivato', 'teo', 'ol', 'matteo.olivato@studenti.univr.it', 'corso Cavour', 'Verona', 'Verona', 'Veneto', 'avatar_anonimo.jpg', '3495467098', 'true');
+VALUES ('Matteo', 'Olivato', 'teo', 'ol', 'matteoolivato93@gmail.com', 'corso Cavour', 'Verona', 'Verona', 'Veneto', 'avatar_anonimo.jpg', '3495467098', 'true');
 
 INSERT INTO Utente(nome, cognome, username, password, email, indirizzo, comune, provincia, regione, foto, n_cell, confermato) 
 VALUES ('Francesco', 'Furlani', 'fran', 'furl', 'francesco.furlani@studenti.univr.it', 'via Matteotti', 'Verona', 'Verona', 'Veneto', 'avatar_anonimo.jpg', '3492231045', 'true');
@@ -10,10 +10,10 @@ VALUES ('Francesco', 'Furlani', 'fran', 'furl', 'francesco.furlani@studenti.univ
 
 
 INSERT INTO Amministrazione(nome, cognome, username, password, email, n_cell, tipo, last_login, last_logout) 
-VALUES ('Gianni', 'Rossi', 'gian', 'amministrazione', 'amm@book-exchange.it', '3405678987', 'amministratore', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ('Gianni', 'Rossi', 'gian', 'amm', 'amm@book-exchange.it', '3405678987', 'amministratore', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO Amministrazione(nome, cognome, username, password, email, n_cell, tipo, last_login, last_logout) 
-VALUES ('Mario', 'Verdi', 'mar', 'correttore', 'corr@book-exchange.it', '3403238987', 'correttore', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES ('Mario', 'Verdi', 'mar', 'corr', 'corr@book-exchange.it', '3403238987', 'correttore', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
 INSERT INTO Libro(ISBN, autore, titolo, genere, descrizione, anno, casa_editrice, lingua, pagine, foto, n_visualizzazioni) 

@@ -14,6 +14,9 @@ import javax.faces.event.ExceptionQueuedEventContext;
 /**
  * Personalizzazione dell'exception handler per il redirect su una pagina di
  * errore a fronte di una runtime exception.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {

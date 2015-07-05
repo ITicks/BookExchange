@@ -1,13 +1,10 @@
 package it.univr.models;
 
-
 import java.io.Serializable;
 
-public class UtenteModel implements Serializable
-{
+public class UtenteModel implements Serializable {
 
 	/** Serial Version UID. */
-
 	private static final long serialVersionUID = -6086967456070466114L;
 
 	private int id;
@@ -24,159 +21,57 @@ public class UtenteModel implements Serializable
 	private String n_cell;
 	private boolean confermato;
 
+	public int getId() { return id; }
 
-	public int getId()
-	{
-		return id;
-	}
+	public void setId(int id) { this.id = id; }
 
+	public String getNome() { return nome; }
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+	public void setNome(String nome) { this.nome = nome; }
 
+	public String getCognome() { return cognome; }
 
-	public String getNome()
-	{
-		return nome;
-	}
+	public void setCognome(String cognome) { this.cognome = cognome; }
 
+	public String getUsername() { return username; }
 
-	public void setNome(String nome)
-	{
-		this.nome = nome;
-	}
+	public void setUsername(String username) { this.username = username; }
 
+	public String getPassword() { return password; }
 
-	public String getCognome()
-	{
-		return cognome;
-	}
+	public void setPassword(String password) { this.password = password; }
 
+	public String getEmail() { return email; }
 
-	public void setCognome(String cognome)
-	{
-		this.cognome = cognome;
-	}
+	public void setEmail(String email) { this.email = email; }
 
+	public String getIndirizzo() { return indirizzo; }
 
-	public String getUsername()
-	{
-		return username;
-	}
+	public void setIndirizzo(String indirizzo) { this.indirizzo = indirizzo; }
 
+	public String getComune() { return comune; }
 
-	public void setUsername(String username)
-	{
-		this.username = username;
-	}
+	public void setComune(String comune) { this.comune = comune; }
 
+	public String getProvincia() { return provincia; }
 
-	public String getPassword()
-	{
-		return password;
-	}
+	public void setProvincia(String provincia) { this.provincia = provincia; }
 
+	public String getRegione() { return regione; }
 
-	public void setPassword(String password)
-	{
-		this.password = password;
-	}
+	public void setRegione(String regione) { this.regione = regione; }
 
+	public String getFoto() { return foto; }
 
-	public String getEmail()
-	{
-		return email;
-	}
+	public void setFoto(String foto) { this.foto = foto; }
 
+	public String getN_cell() { return n_cell; }
 
-	public void setEmail(String email)
-	{
-		this.email = email;
-	}
+	public void setN_cell(String n_cell) { this.n_cell = n_cell; }
 
+	public boolean isConfermato() { return confermato; }
 
-	public String getIndirizzo()
-	{
-		return indirizzo;
-	}
-
-
-	public void setIndirizzo(String indirizzo)
-	{
-		this.indirizzo = indirizzo;
-	}
-
-
-	public String getComune()
-	{
-		return comune;
-	}
-
-
-	public void setComune(String comune)
-	{
-		this.comune = comune;
-	}
-
-
-	public String getProvincia()
-	{
-		return provincia;
-	}
-
-
-	public void setProvincia(String provincia)
-	{
-		this.provincia = provincia;
-	}
-
-
-	public String getRegione()
-	{
-		return regione;
-	}
-
-
-	public void setRegione(String regione)
-	{
-		this.regione = regione;
-	}
-
-
-	public String getFoto()
-	{
-		return foto;
-	}
-
-
-	public void setFoto(String foto)
-	{
-		this.foto = foto;
-	}
-
-
-	public String getN_cell()
-	{
-		return n_cell;
-	}
-
-
-	public void setN_cell(String n_cell)
-	{
-		this.n_cell = n_cell;
-	}
-
-
-	public boolean isConfermato()
-	{
-		return confermato;
-	}
-
-
-	public void setConfermato(boolean confermato)
-	{
+	public void setConfermato(boolean confermato) {
 		this.confermato = confermato;
 	}
 

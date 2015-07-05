@@ -20,22 +20,22 @@ import javax.faces.bean.SessionScoped;
 
 /**
  * Bean per la registrazione dell'Utente.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 @ManagedBean
 @SessionScoped
-public class RegistrazioneBean implements Serializable
+public class RegistrazioneBean extends ViewStateBean implements Serializable
 {
-	/**
-	 * Serial Version UID.
-	 */
+	/** Serial Version UID. */
 	private static final long serialVersionUID = 3677997034601234180L;
-
-	private DataSourceUtente dsUtente;
 	
 	/** L'utente da inserire */
 	private UtenteModel utente;
 	
+	/** Email Sender */
 	private EmailSender emailSender;
 	
 	/** Path del file di properties */
@@ -48,9 +48,9 @@ public class RegistrazioneBean implements Serializable
 	/** Inizializza il bean. */
 	@PostConstruct
 	public void initialize() {
-		this.dsUtente = new DataSourceUtente();
-		this.utente = new UtenteModel();
-		this.emailSender = new EmailSender();
+		dsUt = new DataSourceUtente();
+		utente = new UtenteModel();
+		emailSender = new EmailSender();
 		email_properties = new Properties();
 
 		try {
@@ -62,15 +62,19 @@ public class RegistrazioneBean implements Serializable
 		}
 	}
 	
-	/** Registro il nuovo utente inserito */
+	/**
+	 * Registro il nuovo utente inserito
+	 * 
+	 * @return la pagina da ricaricare 
+	 */
 	public String registraNuovoUtente() {
 		
 		//Mi assicuro che l'username inserito non sia gia in uso
 		List<Object> list = new ArrayList<Object>();
 		list.add(utente.getUsername());
-		if(!dsUtente.isNewUsername(list)){
+		if(!dsUt.isNewUsername(list)){
 			MessagesHandler.getInstance().buildMessage("usernameGiaUsato", FacesMessage.SEVERITY_INFO);
-			return "index";
+			return this.getPageState();
 		}
 		
 		//Aggiungo l'utente al Database
@@ -89,7 +93,7 @@ public class RegistrazioneBean implements Serializable
 		
 		try {
 			//Inserisco il nuovo utente nel database
-			dsUtente.inserimentoUtente(list);
+			dsUt.inserimentoUtente(list);
 			
 			//Invio una mail con i dati del nuovo utente alla sua email
 			String[] emailblocks = email_properties.getProperty("message.registration").replace("|", "\n").split("-");
@@ -108,7 +112,7 @@ public class RegistrazioneBean implements Serializable
 				MessagesHandler.getInstance()
 						.buildMessage("erroreRegistrazioneUtente",
 								FacesMessage.SEVERITY_INFO);
-				return "index";
+				return this.getPageState();
 			}
 			
 
@@ -119,17 +123,13 @@ public class RegistrazioneBean implements Serializable
 		
 		//Aggiorno l'utente
 		utente = new UtenteModel();
-		return "index";
+		return this.setState("pagina_benvenuto", "index");
 	}
 	
 	public UtenteModel getUtente() { return utente; }
 
 	public void setUtente(UtenteModel utente) { this.utente = utente; }
 
-	/** Pulisco il Bean dagli oggetti non necessari dopo un logout. */
-	public void cleanUp()
-	{
-		this.utente = null;
-	}
+	public void cleanUp() { this.utente = null; }
 	
 }

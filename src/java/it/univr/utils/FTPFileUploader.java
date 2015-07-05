@@ -19,7 +19,12 @@ import javax.servlet.http.Part;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 
-
+/**
+ * Uploader di File attraverso l'implementazione di un client FTP.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
+ */
 public class FTPFileUploader implements Serializable, FileUploadInterface {
 
 	/** Serial UID Version.	 */
@@ -37,8 +42,18 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
 	/** Byte del fiel da salvare*/
 	private byte[] fileByte;
 	
+	/** Estensione del file da salvare */
 	private String extension = "";
+
+	/** Pathname del file da salvare */
+	private String pathname;
 	
+	/** Nome del file da salvare */
+	private String filename;
+
+	/**
+	 * Costruisco un nuovo {@code FTPFileUploader}}
+	 */
 	public FTPFileUploader(){
 		properties = new Properties();
 
@@ -50,18 +65,12 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
 		}
 	}
 	
-	/** Pathname del file da salvare */
-	private String pathname;
-	
-	private String filename;
-
 	public Part getFile() { return file; }
 
 	public void setFile(Part file) { this.file = file; }
 	
 	public String getFilename() { return filename; }
 	
-	/** Eseguo l'upload del file con il nome {@code nomefile} */
 	public void upload() {
 		if (file != null) {
 			System.out.println("call upload...");
@@ -90,7 +99,6 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
 		}
 	}
 	
-	/** Salvo l'effettivo file nel filesystem s*/
 	public void save(String nomefile) {
 
 		//Creo il nome del file salvato su disco
@@ -116,6 +124,10 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
         
 	}
 	
+	/**
+	 * Salvo il file caricato nel repository remoto
+	 * @param fileToSave file da salvare ne repository remoto
+	 */
 	private void saveToRemoteResources(File fileToSave){
 		
 		String ftpUrl = properties.getProperty("images.ftpserver");
@@ -165,11 +177,6 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
         }
 	}
 	
-	/**
-	 * Normalizza il nome del file da salvare. Elimina spazi e caratteri speciali
-	 * @param nameparts parti del nome da concatenare
-	 * @return il nome del file da salvare normalizzato
-	 */
 	public String normalizeUploadFileName(List<String> nameparts){
 		String res = "";
 

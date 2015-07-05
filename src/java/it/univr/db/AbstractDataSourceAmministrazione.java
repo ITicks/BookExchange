@@ -10,13 +10,13 @@ import java.util.List;
 
 /**
  * DataSource che gestisce le query che riguardano gli utenti amministrativi.
+ *
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
-
 public abstract class AbstractDataSourceAmministrazione extends AbstractDataSource {
 	
-	/**
-	 * Serial Version UID.
-	 */
+	/** Serial Version UID. */
 	private static final long serialVersionUID = 6970958895966866535L;
 	
 	/** Seleziono un utente amministrativo. */

@@ -14,31 +14,27 @@ import javax.faces.context.FacesContext;
 /**
  * Gestore dei messaggi (Singleton). Questa classe fornisce i metodi per
  * stampare messaggi sulla pagina JSF attuale all'invocazione del metodo.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 public class MessagesHandler implements Serializable {
     
     /** Serial Version UID. */
-    
     private static final long serialVersionUID = -6360313160764062479L;
 
     /** Package contenente i file dei messaggi. */
-    
     private static final String messagesPackage = "/it/univr/properties/";
     
     /** Istanza. */
-    
     private static MessagesHandler instance;
     
     /** Contenitore della proprietà lette dal file di properties. */
-    
     private final Properties properties;
     
     
-    /**
-     * Costruttore privato.
-     */
-    
+    /** Costruttore privato. */
     private MessagesHandler() {
         
         properties = new Properties();
@@ -66,7 +62,6 @@ public class MessagesHandler implements Serializable {
      * 
      * @return l'istanza di questa classe.
      */
-    
     public static synchronized MessagesHandler getInstance() {
         
         if (instance == null)
@@ -81,7 +76,6 @@ public class MessagesHandler implements Serializable {
      * @param key la chiave del messaggio da stampare.
      * @param s il livello di severity.
      */
-    
     public boolean buildMessage(String key, Severity s) {
         
         FacesMessage msg = new FacesMessage(properties.getProperty(key));

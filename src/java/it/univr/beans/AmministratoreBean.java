@@ -20,6 +20,9 @@ import javax.faces.bean.SessionScoped;
 
 /**
  * Bean per la gestione dell'Amministratore.
+ * 
+ * @author Matteo Olivato
+ * @autor  Federico Bianchi
  */
 
 @ManagedBean
@@ -28,15 +31,6 @@ public class AmministratoreBean extends AbstractUtente implements Serializable{
 
 	/** Serial Version UID. */
 	private static final long serialVersionUID = -6742179045212754138L;
-	
-	/** DataSource dell'Amministratore */
-	private DataSourceAmministratore dsAmm;
-	
-	/** DataSource delle Statistiche */
-	private DataSourceStatistiche dsStats;
-	
-	/** DataSource del correttore di Bozze */
-	private DataSourceCorrettoreBozza dsCorr;
 	
 	/** L'amministratore loggato */
 	private AmministrazioneModel amministratore;
@@ -155,7 +149,6 @@ public class AmministratoreBean extends AbstractUtente implements Serializable{
 	 * 
 	 * @param id
 	 */
-	
 	public void deleteCorrettore(int id){
 		List<Object> list = new ArrayList<Object>();
 		
@@ -169,7 +162,6 @@ public class AmministratoreBean extends AbstractUtente implements Serializable{
 	 * 
 	 * @return correttore
 	 */
-	
 	public AmministrazioneModel getCorrettore()
 	{
 		return correttore;
@@ -180,7 +172,6 @@ public class AmministratoreBean extends AbstractUtente implements Serializable{
 	 * 
 	 * @param correttore
 	 */
-	
 	public void setCorrettore(AmministrazioneModel correttore)
 	{
 		this.correttore = correttore;

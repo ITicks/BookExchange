@@ -7,8 +7,10 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.convert.DateTimeConverter;
 
 /**
- * Converte una data inserita nel form per l'inserimento delle date di ritiro
- * delle merci nel formato adatto per il database.
+ * Converte una data inserita nel form nel formato adatto per il database.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 @FacesConverter("it.univr.converters.DateConverter")

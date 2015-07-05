@@ -18,16 +18,13 @@ public class PairInserzioneLibroModel implements Serializable {
 		this.libro = libro;
 	}
 	
-	public LibroModel getLibro() {
-		return libro;
-	}
-	public void setLibro(LibroModel libro) {
-		this.libro = libro;
-	}
-	public InserzioneModel getInserzione() {
-		return inserzione;
-	}
-	public void setInserzione(InserzioneModel inserzione) {
+	public LibroModel getLibro() { return libro; }
+	
+	public void setLibro(LibroModel libro) { this.libro = libro; }
+	
+	public InserzioneModel getInserzione() { return inserzione; }
+	
+	public void setInserzione(InserzioneModel inserzione) { 
 		this.inserzione = inserzione;
 	}
 }

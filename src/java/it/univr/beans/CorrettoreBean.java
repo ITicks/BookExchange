@@ -22,37 +22,31 @@ import javax.faces.bean.SessionScoped;
 
 /**
  * Bean per la gestione del correttore di bozze.
+ *
+ * @author Matteo Olivato
+ * @autor  Federico Bianchi
  */
 
 @ManagedBean
 @SessionScoped
 public class CorrettoreBean extends AbstractUtente implements Serializable{
 	
+	/** Correttore loggato */
 	private AmministrazioneModel correttore;
-
-	private DataSourceCorrettoreBozza dsCorr;
 	
-	private DataSourceInserzione dsIns;
-	
-	private DataSourceLibro dsLib;
-	
-	private DataSourceUtente dsUt;
-	
+	/** Lista dei libri da Validare */
 	private List<PairInserzioneLibroModel> listaInsLibDV;
 	
+	/** Email Sender */
 	private SendEmailInterface emailSender;
-
+	
+	/** Messaggio Email da Inviare */
 	private String emailMessage;
 	
-	/**
-	 * Serial Version UID.
-	 */
+	/** Serial Version UID. */
 	private static final long serialVersionUID = -5662233765654870404L;
 	
-	/**
-	 * Inizializza il bean.  
-	 */
-	
+	/** Inizializza il bean. */
 	@PostConstruct
 	public void initialize() {
 		dsCorr = new DataSourceCorrettoreBozza();
@@ -61,9 +55,7 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 		dsUt = new DataSourceUtente();
 		emailSender = new EmailSender();
 	}
-	
-	public AmministrazioneModel getCorrettore() { return correttore; }
-	
+
 	@Override
 	public Object verifyUser(String username, String password) {
 		this.setUsername(username);
@@ -137,6 +129,12 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 		return listaInsLibDV;
 	}
 	
+	/**
+	 * Rifiuto l'inserzione di un utente.
+	 * @param id_utente utente a cui rifiuto l'inserzione
+	 * @param codice_libro codice del libro da eliminare
+	 * @return la pagina da ricaricare
+	 */
 	public String rifiutaInserzione(int id_utente, int codice_libro){
 		
 		List<Object> list = new ArrayList<Object>();
@@ -158,6 +156,13 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 		return this.setState("lista_inserzioni","correttore");
 	}
 
+	/**
+	 * Valido l'inserzione inserita da un Utente.
+	 * @param id_utente utente che ha inserito l'inserzione
+	 * @param codice_libro libro che deve essere validato
+	 * @param titolo Titolo del libro che sarà utilizzato nella email di conferma dell'inserzione.
+	 * @return la pagina da ricaricare.
+	 */
 	public String validaInserzione(int id_utente, int codice_libro, String titolo) {
 		List<Object> list = new ArrayList<Object>();
 
@@ -181,6 +186,8 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 		
 		return this.setState("lista_inserzioni","correttore");
 	}
+
+	public AmministrazioneModel getCorrettore() { return correttore; }
 	
 	public String getEmailMessage() {
 		return emailMessage;

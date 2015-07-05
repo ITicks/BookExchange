@@ -25,6 +25,9 @@ import javax.faces.context.FacesContext;
 
 /**
  * Bean degli Utenti Standard. 
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 @ManagedBean
@@ -33,15 +36,6 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 
     /** Serial Version UID. */
 	private static final long serialVersionUID = -3497344115815220064L;
-
-	/** Datasource Utente. */
-	private DataSourceUtente dsUtente;
-	
-	/** Datasource delle Inserzioni */
-	private DataSourceInserzione dsIns;
-	
-	/** Datasource dei Libri */
-	private DataSourceLibro dsLib;
 	
 	/** Lista inserzioni libri che sono stati validati */
 	private List<PairInserzioneLibroModel> listaInsLibV;
@@ -61,9 +55,9 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 	/** Inizializza il bean. */
 	@PostConstruct
 	public void initialize() {
-		this.dsUtente = new DataSourceUtente();
-		this.dsIns = new DataSourceInserzione();
-		this.dsLib = new DataSourceLibro();
+		dsUt = new DataSourceUtente();
+		dsIns = new DataSourceInserzione();
+		dsLib = new DataSourceLibro();
 		this.libro = new LibroModel();
 		this.fileUploader = new FTPFileUploader();
 	}
@@ -89,7 +83,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		list.add(this.getUsername());
 		list.add(this.getPassword());
 		
-		utente = dsUtente.checkUtente(list);
+		utente = dsUt.checkUtente(list);
 		
 		if (utente == null)
            return null;
@@ -146,7 +140,7 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		list.add(utente.getUsername());
 		
 		//Modifico la foto Profilo dell'utente
-		dsUtente.modificaFoto(list);
+		dsUt.modificaFoto(list);
 		
 		return this.setState("profilo", "utente");
 	}
@@ -305,7 +299,11 @@ public class UtenteBean extends AbstractUtente implements Serializable {
 		
 		return this.setState("imiei_libri", "utente");
 	}
-
+	
+	/**
+	 * Eseguo l'upload remoto dell'immagine del libro inserito 
+	 * e poi aggiornandone il campo foto.
+	 */
 	private void uploadFotoLibro(){
 		List<String> list = new ArrayList<String>();
 		

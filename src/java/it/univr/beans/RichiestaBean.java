@@ -37,8 +37,10 @@ public class RichiestaBean extends ViewStateBean implements Serializable{
 	/** Il libro da chiedere in prestito */
 	private LibroModel libro;
 	
+	/** Messaggio di richesta da inviare per email */
 	private String emailMessage;
 	
+	/** Email Sender */
 	private EmailSender emailSender;
 	
 	/** Path del file di properties */

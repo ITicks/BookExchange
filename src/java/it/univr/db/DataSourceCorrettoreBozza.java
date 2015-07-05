@@ -6,13 +6,14 @@ import java.util.List;
 import it.univr.models.AmministrazioneModel;
 
 /**
- * Datasource che gestisce le query relative al correttore di bozze
+ * Datasource che gestisce le query relative al correttore di bozze.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 public class DataSourceCorrettoreBozza extends AbstractDataSourceAmministrazione {
 
-	/**
-	 * Serial Version UID. 
-	 */
+	/** Serial Version UID. */
 	private static final long serialVersionUID = -1561938253909445371L;
 	
 	/**

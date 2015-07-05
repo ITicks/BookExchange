@@ -2,6 +2,12 @@ package it.univr.beans;
 
 import javax.annotation.PreDestroy;
 
+/**
+ * Classe astratta che rappresenta un Utente.
+ * 
+ * @author Matteo Olivato
+ * @autor  Federico Bianchi
+ */
 public abstract class AbstractUtente extends ViewStateBean
 {
 	/** Campo login del form. */
@@ -17,7 +23,6 @@ public abstract class AbstractUtente extends ViewStateBean
 	 * 
 	 * @return l'outcome {@code ""} per ricaricare la pagina attuale.
 	 */
-	
 	public abstract Object verifyUser(String username, String password);
 	
 
@@ -28,7 +33,6 @@ public abstract class AbstractUtente extends ViewStateBean
      * @return {@code redirectToIndex} per reindirizzare la navigazione alla
      *         homepage.
      */
-    
     public String logout(){
     	//Pulisco i campi del Bean
     	cleanUp();
@@ -42,21 +46,18 @@ public abstract class AbstractUtente extends ViewStateBean
 	 * 
 	 * @return {@code true} se e solo se l'utente è loggato.
 	 */
-	
 	public boolean getLoggedIn(Object obj){ return obj != null; }
 
 	
 	/**
 	 * Reset del bean.
 	 */
-	
 	@PreDestroy
 	public abstract void cleanUp();
 	
 	/**
 	 * Pulisce i campi del form di login dell'utente.
 	 */
-	
 	public void cleanFields(){
 		setUsername("");
 	    setPassword("");

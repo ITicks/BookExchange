@@ -1,0 +1,9 @@
+it.univr.beans
+it.univr.converters
+it.univr.db
+it.univr.exceptions
+it.univr.messages
+it.univr.models
+it.univr.tests
+it.univr.utils
+it.univr.validators

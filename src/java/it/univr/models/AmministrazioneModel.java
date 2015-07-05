@@ -8,7 +8,6 @@ public class AmministrazioneModel implements Serializable
 {
 
 	/** Serial Version UID. */
-
 	private static final long serialVersionUID = -1426065474072522810L;
 
 	private int id;
@@ -22,226 +21,47 @@ public class AmministrazioneModel implements Serializable
 	private Timestamp last_login;
 	private Timestamp last_logout;
 
-	/**
-	 * Ritorna l'ID dell'Amministratore/Correttore
-	 * 
-	 * @return id
-	 */
+	public int getId() { return id; }
 
-	public int getId()
-	{
-		return id;
-	}
+	public void setId(int id) { this.id = id; }
 
-	/**
-	 * Setta l'ID dell'Amministratore/Correttore
-	 * 
-	 * @param id
-	 */
-	
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+	public String getNome() { return nome; }
 
-	/**
-	 * Ritorna il nome dell'Amministratore/Correttore
-	 * 
-	 * @return nome
-	 */
+	public void setNome(String nome) { this.nome = nome; }
 
-	public String getNome()
-	{
+	public String getCognome() { return cognome; }
 
-		return nome;
-	}
+	public void setCognome(String cognome) { this.cognome = cognome; }
 
-	/**
-	 * Setta il nome dell'Amministratore/Correttore
-	 * 
-	 * @param nome
-	 */
-	
-	public void setNome(String nome)
-	{
-		this.nome = nome;
-	}
+	public String getUsername() { return username; }
 
-	/**
-	 * Ritorna il cognome dell'Amministratore/Correttore
-	 * 
-	 * @return cognome
-	 */
+	public void setUsername(String username) { this.username = username; }
 
-	public String getCognome()
-	{
-		return cognome;
-	}
+	public String getPassword() { return password; }
 
+	public void setPassword(String password) { this.password = password; }
 
-	/**
-	 * Setta il cognome dell'Amministratore/Correttore
-	 * 
-	 * @param cognome
-	 */
-	
-	public void setCognome(String cognome)
-	{
-		this.cognome = cognome;
-	}
+	public String getEmail() { return email; }
 
-	/**
-	 * Ritorna l'username dell'Amministratore/Correttore
-	 * 
-	 * @return username
-	 */
+	public void setEmail(String email) { this.email = email; }
 
-	public String getUsername()
-	{
-		return username;
-	}
+	public String getN_cell() { return n_cell; }
 
-	/**
-	 * Setta l'username dell'Amministratore/Correttore
-	 * 
-	 * @param username
-	 */
+	public void setN_cell(String n_cell) { this.n_cell = n_cell; }
 
-	public void setUsername(String username)
-	{
-		this.username = username;
-	}
+	public String getTipo() { return tipo; }
 
-	/**
-	 * Ritorna la password dell'Amministratore/Correttore
-	 * 
-	 * @return password
-	 */
-	
-	public String getPassword()
-	{
-		return password;
-	}
+	public void setTipo(String tipo) { this.tipo = tipo; }
 
-	/**
-	 * Setta la password dell'Amministratore/Correttore
-	 * 
-	 * @param password
-	 */
-	
-	public void setPassword(String password)
-	{
-		this.password = password;
-	}
+	public Timestamp getLast_login() { return last_login; }
 
-	/**
-	 * Ritorna la mail dell'Amministratore/Correttore
-	 * 
-	 * @return email
-	 */
-
-	public String getEmail()
-	{
-		return email;
-	}
-
-	/**
-	 * Ritorna la mail dell'Amministratore/Correttore
-	 * 
-	 * @param email
-	 */
-	
-	public void setEmail(String email)
-	{
-		this.email = email;
-	}
-
-	/**
-	 * Ritorna il numero di telefono dell'Amministratore/Correttore
-	 * 
-	 * @return n_cell
-	 */
-
-	public String getN_cell()
-	{
-		return n_cell;
-	}
-
-	
-	/**
-	 * Setta il numero di telefono dell'Amministratore/Correttore
-	 * 
-	 * @param n_cell
-	 */
-
-	public void setN_cell(String n_cell)
-	{
-		this.n_cell = n_cell;
-	}
-
-	/**
-	 * Ritorna il tipo di Amministratore o Correttore
-	 * 
-	 * @return tipo
-	 */
-
-	public String getTipo()
-	{
-		return tipo;
-	}
-
-	/**
-	 * Setta il tipo Amministratore o Correttore
-	 * 
-	 * @param tipo
-	 */
-
-	public void setTipo(String tipo)
-	{
-		this.tipo = tipo;
-	}
-
-	/**
-	 * Ritorna il tempo dell'ultimo login effettuato da Amministratore/Correttore
-	 * 
-	 * @return last_login
-	 */
-
-	public Timestamp getLast_login()
-	{
-		return last_login;
-	}
-
-	/**
-	 * Setta il tempo dell'ultimo login effettuato da Amministratore/Correttore
-	 * 
-	 * @param last_login
-	 */
-
-	public void setLast_login(Timestamp last_login)
-	{
+	public void setLast_login(Timestamp last_login) {
 		this.last_login = last_login;
 	}
 
-	/**
-	 * Ritorna il tempo dell'ultimo logout effettuato da Amministratore/Correttore
-	 * 
-	 * @return last_logout
-	 */
+	public Timestamp getLast_logout() { return last_logout; }
 
-	public Timestamp getLast_logout()
-	{
-		return last_logout;
-	}
-
-	/**
-	 * Setta il tempo dell'ultimo logout effettuato da Amministratore/Correttore
-	 * 
-	 * @param last_logout
-	 */
-
-	public void setLast_logout(Timestamp last_logout)
-	{
+	public void setLast_logout(Timestamp last_logout) {
 		this.last_logout = last_logout;
 	}
 

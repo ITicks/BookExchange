@@ -8,6 +8,12 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import javax.servlet.http.Part;
 
+/**
+ * Validatore per il tipo e la dimensione del file inserito dall' utente.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
+ */
 @FacesValidator
 public class FileValidator implements Validator {
 

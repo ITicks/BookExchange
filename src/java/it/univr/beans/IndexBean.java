@@ -13,6 +13,9 @@ import javax.faces.bean.SessionScoped;
 
 /**
  * Bean di tutti i tipi di Utente.
+ * 
+ * @author Matteo Olivato
+ * @autor  Federico Bianchi
  */
 
 @ManagedBean
@@ -21,45 +24,43 @@ public class IndexBean extends ViewStateBean implements Serializable
 {
 
     /** Serial Version UID. */
-
 	private static final long serialVersionUID = 90526546886875511L;
 	
+	/** Bean dell'utente */
 	@ManagedProperty(value = "#{utenteBean}")
 	private UtenteBean utenteBean;
 	
+	/** Bean del correttore di bozze */
 	@ManagedProperty(value = "#{correttoreBean}")
 	private CorrettoreBean correttoreBean;
 	
+	/** Bean dell' amministratore */
 	@ManagedProperty(value = "#{amministratoreBean}")
 	private AmministratoreBean amministratoreBean;
 	
+	/** Bean della registrazione */
 	@ManagedProperty(value = "#{registrazioneBean}")
 	private RegistrazioneBean registrazioneBean;
 	
+	/** Username inserito */
 	private String username;
 	
+	/** Password inserita */
 	private String password;
 	
+	/** Indico se un utente si è loggato */
 	private boolean loggedIn;
-	
-	
-	public boolean isLoggedIn() {
-		return loggedIn;
-	}
 
-	public void setLoggedIn(boolean loggedIn) {
-		this.loggedIn = loggedIn;
-	}
-
-	/**
-	 * Inizializza il bean.  
-	 */
-	
+	/** Inizializza il bean. */
 	@PostConstruct
 	public void initialize() {
 		loggedIn = false;
 	}
-		
+	
+	/**
+	 * Eseguo il login selezionando l'utente corretto
+	 * @return la pagina del tipo di utente loggato.
+	 */
 	public String login(){
 		
 		if(utenteBean.verifyUser(username, password) != null) {
@@ -77,9 +78,12 @@ public class IndexBean extends ViewStateBean implements Serializable
 					FacesMessage.SEVERITY_ERROR);
 		}
 		
-		return "index";
+		return this.setState("registrazione_utente", "index");
 	}
 	
+	/**
+	 * Eseguo il logout di un utente.
+	 */
 	public void logout() {
 		loggedIn = false;
 
@@ -91,6 +95,14 @@ public class IndexBean extends ViewStateBean implements Serializable
 		
 		else
 			amministratoreBean.logout();
+	}
+
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 	
 	public String getUsername() {

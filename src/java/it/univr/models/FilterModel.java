@@ -11,30 +11,25 @@ public class FilterModel {
 	private Area area;
 	private Lingua lingua;
 	
-	public Genere getGenere() {
-		return genere;
-	}
-	public void setGenere(Genere genere) {
-		this.genere = genere;
-	}
-	public String getTitolo() {
-		return titolo;
-	}
-	public void setTitolo(String titolo) {
-		this.titolo = titolo;
-	}
-	public String getAutore() {
-		return autore;
-	}
-	public void setAutore(String autore) {
-		this.autore = autore;
-	}
-	public Area getArea() {
-		return area;
-	}
-	public void setArea(Area area) {
-		this.area = area;
-	}
+	public Genere getGenere() {	return genere;	}
+	
+	public void setGenere(Genere genere) { this.genere = genere; }
+	
+	public String getTitolo() {	return titolo; }
+	
+	public void setTitolo(String titolo) { this.titolo = titolo; }
+	
+	public String getAutore() {	return autore; }
+	
+	public void setAutore(String autore) { this.autore = autore; }
+	
+	public Area getArea() {	return area; }
+	
+	public void setArea(Area area) { this.area = area; }
+	
+	public Lingua getLingua() { return lingua; }
+	
+	public void setLingua(Lingua lingua) { this.lingua = lingua; }
 	
 	public static List<Genere> listaGenere( boolean nessuno){
 		List<Genere> list = new ArrayList<Genere>();
@@ -70,11 +65,4 @@ public class FilterModel {
 				|| titolo == null || autore == null;
 	}
 	
-	public Lingua getLingua() {
-		return lingua;
-	}
-	
-	public void setLingua(Lingua lingua) {
-		this.lingua = lingua;
-	}
 }

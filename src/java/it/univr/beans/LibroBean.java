@@ -13,36 +13,42 @@ import javax.faces.bean.SessionScoped;
 
 /**
  * Bean del Libro. 
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 @ManagedBean
 @SessionScoped
-public class LibroBean implements Serializable {
+public class LibroBean extends ViewStateBean implements Serializable {
 
     /** Serial Version UID. */
 	private static final long serialVersionUID = 6464215260521061434L;
 
-	/** Il Libro. */
+	/** Il Libro da visualizzare. */
 	private LibroModel libro;
-	
-	private DataSourceLibro dsLibro;
 	
 	/** Inizializza il bean */
 	@PostConstruct
-	public void initialize() { dsLibro = new DataSourceLibro(); }
+	public void initialize() { dsLib = new DataSourceLibro(); }
 
+	/**
+	 * Recupero un libro a partire dal suo codice.
+	 * @param codice codice del libro da recuperare
+	 * @return il libro {@code LibroModel} recuperato
+	 */
 	public LibroModel getLibro(int codice){
 		List<Object> list = new ArrayList<Object>();
 		list.add(codice);
-		dsLibro.incrementNVis(list);
-		this.libro = dsLibro.getLibro(list);
+		dsLib.incrementNVis(list);
+		this.libro = dsLib.getLibro(list);
 		return libro;
 	}
 	
 	public LibroModel getLibro() {
 		List<Object> list = new ArrayList<Object>();
 		list.add(libro.getCodice());
-		dsLibro.incrementNVis(list);
+		dsLib.incrementNVis(list);
 		
 		return libro;
 	}

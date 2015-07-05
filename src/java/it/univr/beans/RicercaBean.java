@@ -22,6 +22,9 @@ import javax.faces.context.FacesContext;
 
 /**
  * Bean per la ricerca di un Libro.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 @ManagedBean
@@ -31,12 +34,7 @@ public class RicercaBean extends ViewStateBean implements Serializable {
 	/** Serial Version UID. */
 	private static final long serialVersionUID = 7723552566746113674L;
 	
-	private DataSourceInserzione dsIns;
-	
-	private DataSourceLibro dsLib;
-	
-	private DataSourceUtente dsUt;
-	
+	/** Filtro per specificare i parametri di ricerca */
 	private FilterModel filtro;
 	
 	/** L'utente che ha effettuato la ricerca */
@@ -48,13 +46,17 @@ public class RicercaBean extends ViewStateBean implements Serializable {
 	/** Inizializza il bean. */
 	@PostConstruct
 	public void initialize() {
-		this.dsUt = new DataSourceUtente();
-		this.dsIns = new DataSourceInserzione();
-		this.dsLib = new DataSourceLibro();
+		dsUt = new DataSourceUtente();
+		dsIns = new DataSourceInserzione();
+		dsLib = new DataSourceLibro();
 		this.filtro = new FilterModel();
 		this.listaLibriCercati = new ArrayList<PairUtenteLibroModel>();
 	}
 	
+	/**
+	 * Ricerco il libro o i libri corrispondenti ai parametri di ricerca dentro il filtro.
+	 * @return la pagina da ricaricare
+	 */
 	public String ricercaLibro() {
 		listaLibriCercati = new ArrayList<PairUtenteLibroModel>();
 
@@ -114,6 +116,12 @@ public class RicercaBean extends ViewStateBean implements Serializable {
 		return this.setState("ricerca_libri", "utente");
 	}
 	
+	/**
+	 * Invio la richiesta di prestito di un libro tramite email al suo possessore.
+	 * @param utentePossessore possessore del libro
+	 * @param libro libro da richiedere in prestito
+	 * @return la pagina di richiesta del libro
+	 */
 	public String richiediLibro(UtenteModel utentePossessore, LibroModel libro){
 		// Recupero il Bean della Richiesta
 		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
@@ -137,6 +145,10 @@ public class RicercaBean extends ViewStateBean implements Serializable {
 
 	public void setUtente(UtenteModel utente) {	this.utente = utente; }
 	
+	/**
+	 * Se la lista non è vuota ritorno la lista dei libri cercati.
+	 * @return
+	 */
 	public List<PairUtenteLibroModel> getListaLibriCercati() {
 		if(utente!=null && filtro != null && !filtro.isEmpty()) this.ricercaLibro();
 		return listaLibriCercati;

@@ -21,6 +21,9 @@ import java.util.Properties;
  * Segue il pattern creazionale {@code Singleton} e, pertanto, assicura che
  * tutti gli utilizzare dell'unica istanza della classe vedano la stessa
  * configurazione.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 
 public class DBSingleton implements Serializable

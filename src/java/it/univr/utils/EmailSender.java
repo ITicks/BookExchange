@@ -15,6 +15,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * Classe che invia email automatiche tramite Gmail
+ * 
  * @author Matteo Olivato
  * @author Federico Bianchi
  */
@@ -50,12 +51,7 @@ public class EmailSender implements Serializable, SendEmailInterface {
 		}
 	}
 	
-	/**
-	 * Invio una email
-	 * @param emailBody testo della mail da inviare
-	 * @param to ricevitore della mail
-	 * @return {@code true} se è riuscito ad inviare la mail, altrimenti {@code false}
-	 */
+	
 	public boolean sendEmail(String emailBody, String to) {
 		String server = email_properties.getProperty("mail.server");
 		String address = email_properties.getProperty("mail.address");

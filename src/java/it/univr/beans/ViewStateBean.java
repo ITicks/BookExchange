@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Classe che permette la gestione degli stati rispettivi alle jsf dei bean
+ * Classe che permette la gestione degli stati rispettivi alle jsf dei bean.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
-public class ViewStateBean {
+public class ViewStateBean extends AbstractDataSourceBean {
 	
 	/** Stato della jsf */
 	private static String state="standard_utente";

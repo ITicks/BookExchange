@@ -6,12 +6,13 @@ import java.util.List;
 
 /**
  * DataSource che gestisce le query che riguardano gli amministratori.
+ * 
+ * @author Matteo Olivato
+ * @author Federico Bianchi
  */
 public class DataSourceAmministratore extends AbstractDataSourceAmministrazione {
 
-	/**
-	 * Serial Version UID. 
-	 */
+	/** Serial Version UID. */
 	private static final long serialVersionUID = 5655625247107101937L;
 	
 	/**
