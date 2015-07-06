@@ -194,6 +194,6 @@ public class CorrettoreBean extends AbstractUtente implements Serializable{
 	}
 
 	public void setEmailMessage(String emailMessage) {
-		this.emailMessage = emailMessage;
+		if(!emailMessage.equals("")) this.emailMessage = emailMessage;
 	}
 }

@@ -107,6 +107,7 @@ public class FTPFileUploader implements Serializable, FileUploadInterface {
 		FileOutputStream fos = null;
 		
 		File fileToSave = new File(pathname + filename);
+		
 		try {
 			fos = new FileOutputStream(fileToSave);
 			fos.write(this.fileByte);
